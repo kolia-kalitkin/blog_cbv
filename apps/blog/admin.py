@@ -11,4 +11,9 @@ class CategoryAdmin(DjangoMpttAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
-admin.site.register(Post)
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    """
+    Админ-панель модели записей
+    """
+    prepopulated_fields = {'slug': ('title',)}      # параметр prepopulated_fields, который позволяет с помощью встроенного JS обрабатывать заголовок в реальном времени, конвертирует даже кириллицу
