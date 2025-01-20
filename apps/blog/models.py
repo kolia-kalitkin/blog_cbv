@@ -70,6 +70,18 @@ class Category(MPTTModel):
         verbose_name='Родительская категория'
     )
 
+    def get_absolute_url(self):
+        """
+        Получаем прямую ссылку на категорию
+        """
+        return reverse('post_by_category', kwargs={'slug': self.slug})
+
+    def __str__(self):
+        """
+        Возвращение заголовка статьи
+        """
+        return self.title
+
     class MPTTMeta:
         """
         Сортировка по вложенности
