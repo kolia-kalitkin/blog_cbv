@@ -15,7 +15,7 @@ class PostManager(models.Manager):
         """
         Список постов (SQL запрос с фильтрацией по статусу опубликованно)
         """
-        return super().get_queryset().filter(status='published')
+        return super().get_queryset().select_related('author', 'category').filter(status='published')   #  добавим до фильтрации по статусу метод: select_related() для ключа Foreign Key - Автора и Категорий, так как со статьи мы ссылаемся на автора и категорию
     
 
 class Post(models.Model):
