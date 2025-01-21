@@ -24,6 +24,9 @@ urlpatterns = [
     path('', include('apps.blog.urls')),
 
 ]
-# медиафайлы будут работать только при включенной отладке
+# медиафайлы 
+# панель инструментов отладки
+# будут работать только при включенной отладке
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [path('__debug__/', include('debug_toolbar.urls'))]
