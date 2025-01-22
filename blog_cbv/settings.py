@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'mptt',     # инструмент для работы с древовидными структурами.
     'django_mptt_admin', # Древовидное отображение записей в админке
     'debug_toolbar', # приложение тулбара
+    'apps.accounts',
 ]
 
 MIDDLEWARE = [
